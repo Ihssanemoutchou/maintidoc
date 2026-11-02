@@ -1,0 +1,11 @@
+flowchart TD
+  UI[Interface: question + photo] --> API[API: authentification et droits C1]
+  API --> ORCH[Orchestration: workflow à états]
+  ORCH --> RAG[Recherche documentaire filtrée par groupe C1]
+  ORCH --> VLM[Modèle vision-langage]
+  ORCH --> MCPC[Client MCP]
+  MCPC --> MCPS[Serveur MCP: historique, tickets C1]
+  RAG --> IDX[(Index)]
+  ORCH --> CIT[Vérificateur de citations C2]
+  ORCH --> HUM[Approbation humaine C3]
+  ING[Ingestion hors ligne] --> IDX
